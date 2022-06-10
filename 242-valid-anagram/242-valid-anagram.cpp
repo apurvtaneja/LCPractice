@@ -12,9 +12,7 @@ public:
         }
         
         for(auto i:mp){
-            if(i.second <= 0)
-                continue;
-            else
+            if(i.second > 0)
                 return false;
         }
         
