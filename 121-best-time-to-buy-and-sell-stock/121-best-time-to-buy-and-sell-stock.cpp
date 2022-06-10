@@ -3,18 +3,16 @@ public:
     int maxProfit(vector<int>& prices) {
         
         int n = prices.size();
-        int maxSell = INT_MIN;
+        int minBuy = INT_MAX;
         int maxProfit = 0;
         
-        for(int i = n-1; i >= 0 ; i--)
+        for(auto i: prices)
         {
-            if(prices[i] > maxSell)    maxSell = prices[i];
-            
-            else{
-                int profit = maxSell - prices[i];
-                if(profit > maxProfit)  maxProfit = profit;
-            }
+            if(i < minBuy)    minBuy = i;
+            int profit = i - minBuy;
+            if(profit > maxProfit)  maxProfit = profit;
         }
+       
         
         return maxProfit;
     }
