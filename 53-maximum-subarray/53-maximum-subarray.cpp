@@ -6,8 +6,7 @@ public:
         
         for(auto i: nums){
             localMax += i;
-            if(globalMax < localMax)
-                globalMax = localMax;
+            globalMax = max(globalMax, localMax);
             if(localMax < 0)
                 localMax = 0;
         }
