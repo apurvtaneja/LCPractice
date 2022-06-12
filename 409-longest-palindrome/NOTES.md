@@ -1,1 +1,2 @@
-​
+The intuition is that we want all the even numbers to be added to our result. And all the odd numbers minus one should also be added to the result.
+Any odd number can be converted into an even number by subtracting one from it. So we will still use those ever number for our palindrome. And we can just add one in the end if encountered an odd number, to fill that middle value. Since that number was odd to begin with .
