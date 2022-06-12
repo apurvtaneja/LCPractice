@@ -16,7 +16,7 @@ public:
         }
         int ans=s1.top();
         s1.pop();
-        while(s2.size()>0){
+        while(s2.size()){
             s1.push(s2.top());
             s2.pop();
         }
@@ -29,7 +29,7 @@ public:
             s1.pop();
         }
         int ans=s1.top();
-        while(s2.size()>0){
+        while(s2.size()){
             s1.push(s2.top());
             s2.pop();
         }
