@@ -12,14 +12,18 @@ public:
         
         for(char c:s)   mp[c] += 1;
         
-        
         for(auto i:mp){
-            maxPalindrome += i.second/2 * 2;
-            
-            if(maxPalindrome % 2 ==0 && i.second % 2 == 1)
-                
-               maxPalindrome++;
+            if(i.second % 2 ==0)
+               maxPalindrome += i.second;
+            else
+            {
+                maxPalindrome += i.second-1; 
+                oneOne = true;
+            }
         }
+        if(oneOne)
+            return maxPalindrome + 1;
+        
         return maxPalindrome;
     }
 };
