@@ -14,10 +14,10 @@ public:
             
             bool isMidBad = isBadVersion(mid);
             
-            if(isMidBad == true)
+            if(isMidBad)
                 e = mid;
             
-            if(isMidBad == false)
+            if(!isMidBad)
                 s = mid+1;
             
             mid = s + ((e-s)/2);
