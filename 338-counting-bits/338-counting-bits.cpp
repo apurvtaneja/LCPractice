@@ -7,9 +7,9 @@ public:
             int bitCount =0;
             int i = num;
             while(i){
-                if(i % 2 == 1)
+                if(i & 1)
                     bitCount++;
-                i /= 2;
+                i = i>>1;
             }
             ans.push_back(bitCount); 
         }
