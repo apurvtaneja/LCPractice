@@ -24,10 +24,9 @@ public:
         if(!root || !subRoot)   return false;
         
         if(root->val == subRoot->val){
-            //do shit here
             bool x = areEqual(root, subRoot);
             if(x)
-                return areEqual(root, subRoot);
+                return x;
         }
         return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
     }
