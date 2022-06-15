@@ -4,7 +4,7 @@ public:
         int s=0, e, k;
         k = e = nums.size()-1;
         vector<int> res(nums.size());
-        while(k >= 0){
+        while(s<=e){
             if(abs(nums[s]) > abs(nums[e]))
                 res[k--] = nums[s] * nums[s++];
             else
