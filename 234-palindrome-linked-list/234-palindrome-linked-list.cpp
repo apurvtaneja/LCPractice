@@ -23,20 +23,29 @@ public:
             fast = fast->next->next;
         }
         
-        vector<int> a,b;
-        fast = slow->next;
-        slow = head; 
-        while(fast){
-            a.push_back(slow->val);
-            b.push_back(fast->val);
-            slow = slow->next;
-            fast = fast->next;
+        ListNode* prev = NULL, *cur, *nex;
+        
+        // cout<<slow->val;
+        cur = slow->next;
+        
+        while(cur){
+            nex = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = nex;
         }
-        reverse(b.begin(),b.end());
-        for(auto i:a)   cout<<i<<endl;
-        cout<<endl;
-        for(auto i:b)   cout<<i<<endl;
-
-        return a == b;
+        
+        slow->next = prev;
+        fast = slow->next;
+        slow = head;
+        
+        while(fast){
+            if(slow->val != fast->val)
+                return false;
+            cout<<slow->val<<endl<<fast->val;
+            fast = fast->next;
+            slow = slow->next;
+        }
+        return true;
     }
 };
