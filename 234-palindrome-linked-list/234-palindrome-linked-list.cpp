@@ -24,8 +24,6 @@ public:
         }
         
         ListNode* prev = NULL, *cur, *nex;
-        
-        // cout<<slow->val;
         cur = slow->next;
         
         while(cur){
@@ -40,7 +38,6 @@ public:
         while(prev){
             if(head->val != prev->val)
                 return false;
-            cout<<head->val<<endl<<prev->val;
             prev = prev->next;
             head = head->next;
         }
