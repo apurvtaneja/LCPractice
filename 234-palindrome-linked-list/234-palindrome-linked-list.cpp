@@ -36,15 +36,13 @@ public:
         }
         
         slow->next = prev;
-        fast = slow->next;
-        slow = head;
         
-        while(fast){
-            if(slow->val != fast->val)
+        while(prev){
+            if(head->val != prev->val)
                 return false;
-            cout<<slow->val<<endl<<fast->val;
-            fast = fast->next;
-            slow = slow->next;
+            cout<<head->val<<endl<<prev->val;
+            prev = prev->next;
+            head = head->next;
         }
         return true;
     }
