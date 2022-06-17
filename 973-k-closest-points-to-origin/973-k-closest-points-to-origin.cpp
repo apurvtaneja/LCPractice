@@ -1,6 +1,4 @@
-#define minus( x1, x2 ) ( x1 - x2 )
-#define squareOfMinus( x1, x2) ( minus(x1,x2) *  minus(x1,x2))
-#define squareOfMinus( x1, x2) ( minus(x1,x2) *  minus(x1,x2))
+#define squareOfMinus( x1, x2) ( ( x1 - x2 ) *  ( x1 - x2 ))
 #define addSquareOfMinus(x1, x2, y1, y2) (squareOfMinus( x1, x2) + squareOfMinus( y1, y2))
 
 class Solution {
