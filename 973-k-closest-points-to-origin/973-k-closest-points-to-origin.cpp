@@ -12,7 +12,7 @@ public:
         
         for(int i = 0; i<n; i++){
             float distance = addSquareOfMinus(points[i][0],0,points[i][1],0);
-            mp.insert(make_pair(distance,i));
+            mp.insert(pair<float,int>(distance,i));
         }
         int j=0;
         for(auto m:mp){
