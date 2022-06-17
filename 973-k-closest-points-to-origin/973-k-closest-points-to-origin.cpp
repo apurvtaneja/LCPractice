@@ -6,7 +6,7 @@ public:
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
         int n = points.size();
         multimap<float,int> mp;
-        vector<vector<int>> res;
+        vector<vector<int>> res(k);
         
         for(int i = 0; i<n; i++){
             float distance = addSquareOfMinus(points[i][0],0,points[i][1],0);
@@ -15,7 +15,7 @@ public:
         int j=0;
         for(auto m:mp){
             if(j>=k)    break;
-            res.push_back(points[m.second]);
+            res[j] = points[m.second];
             j++;
         }
         return res;
