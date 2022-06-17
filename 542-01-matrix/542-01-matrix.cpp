@@ -9,21 +9,15 @@ public:
         int rows = mat.size();
         int cols = mat[0].size();
         queue<pair<int,int>> q;
-        vector<vector<int>> ans(rows,vector<int>(cols,-1));
         
         for(int i = 0;i<rows;i++){
             for(int j=0;j<cols;j++){
-                if(mat[i][j]==0){
-                    q.push({i,j});
-                    ans[i][j] = 0;
-                }
+                if(mat[i][j]==0)    q.push({i,j});
+                else    mat[i][j] = -1;
             }
         }
         
-        int offset[4][2] = {{0,1},
-                            {1,0},
-                            {0,-1},
-                            {-1,0}};
+        int offset[4][2] = {{0,1}, {1,0}, {0,-1}, {-1,0}};
         
         while(!q.empty()){
             auto [i,j] = q.front();
@@ -31,13 +25,13 @@ public:
             for(auto [ni,nj]:offset){
                 ni += i;
                 nj += j;
-                if(checkValid(ni,nj,rows,cols) && ans[ni][nj]==-1){
+                if(checkValid(ni,nj,rows,cols) && mat[ni][nj]==-1){
                     q.push({ni,nj});
-                    ans[ni][nj] = ans[i][j] + 1;
+                    mat[ni][nj] = mat[i][j] + 1;
                 }
             }
             q.pop();
         }
-        return ans;
+        return mat;
     }
 };
