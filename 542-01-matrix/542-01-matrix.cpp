@@ -26,12 +26,11 @@ public:
                             {-1,0}};
         
         while(!q.empty()){
-            int i = q.front().first;
-            int j = q.front().second;
+            auto [i,j] = q.front();
             
-            for(auto off:offset){
-                int ni = i + off[0];
-                int nj = j + off[1];
+            for(auto [ni,nj]:offset){
+                ni += i;
+                nj += j;
                 if(checkValid(ni,nj,rows,cols) && ans[ni][nj]==-1){
                     q.push({ni,nj});
                     ans[ni][nj] = ans[i][j] + 1;
