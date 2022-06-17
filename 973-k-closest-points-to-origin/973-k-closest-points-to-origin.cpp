@@ -13,7 +13,7 @@ public:
             mp.insert(pair<float,int>(distance,i));
         }
         int j=0;
-        for(auto m:mp){
+        for(auto& m:mp){
             if(j>=k)    break;
             res[j] = points[m.second];
             j++;
