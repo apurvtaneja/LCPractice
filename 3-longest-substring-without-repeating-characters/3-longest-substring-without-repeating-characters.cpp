@@ -8,6 +8,11 @@ public:
         int maxSubStr = 0;
         
         for(int r = 0; r < n; r++){
+            /*if the r pointer value is in the set.
+              remove all the values from the left
+              until we see s[r]==s[l]
+              then remove that value
+            */
             if(charSet.find(s[r]) != charSet.end()){
                 while(l!=r && s[l]!=s[r])
                     charSet.erase(s[l++]);
