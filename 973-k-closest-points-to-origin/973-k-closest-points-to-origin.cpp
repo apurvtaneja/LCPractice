@@ -15,13 +15,11 @@ public:
         for(int i = 0; i<n; i++){
             float distance = sqrt(addSquareOfMinus(points[i][0],0,points[i][1],0));
             mp.insert(pair<float,int>(distance,i));
-            cout<<distance<<endl;
         }
         int j=0;
         for(auto m:mp){
             if(j>=k)    break;
             res.push_back(points[m.second]);
-            cout<<"distance "<<m.first<<endl;
             j++;
         }
         return res;
