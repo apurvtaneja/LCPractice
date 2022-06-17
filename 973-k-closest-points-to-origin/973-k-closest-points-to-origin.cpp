@@ -1,22 +1,20 @@
 #define squareOfMinus( x1, x2) ( ( x1 - x2 ) *  ( x1 - x2 ))
-#define addSquareOfMinus(x1, x2, y1, y2) (squareOfMinus( x1, x2) + squareOfMinus( y1, y2))
+#define addSquareOfMinus(x1, y1) (squareOfMinus( x1, 0) + squareOfMinus( y1, 0))
 
 class Solution {
 public:
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
         int n = points.size();
-        multimap<float,int> mp;
+        priority_queue<pair<int,int>> pq;
         vector<vector<int>> res(k);
         
         for(int i = 0; i<n; i++){
-            float distance = addSquareOfMinus(points[i][0],0,points[i][1],0);
-            mp.insert(pair<float,int>(distance,i));
+            int dis = addSquareOfMinus(points[i][0],points[i][1]);
+            pq.push({-dis,i});
         }
-        int j=0;
-        for(auto& m:mp){
-            if(j>=k)    break;
-            res[j] = points[m.second];
-            j++;
+        while(--k>=0){
+            res[k] = points[pq.top().second];  
+            pq.pop();
         }
         return res;
     }
