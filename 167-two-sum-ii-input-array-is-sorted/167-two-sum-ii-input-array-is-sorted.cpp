@@ -4,8 +4,7 @@ public:
         int s = 0, e = nums.size()-1;
         vector<int> ans;
         while(s<e){
-            int numOne = nums[s];   int numTwo = nums[e];
-            int twoSum = numOne + numTwo;
+            int twoSum = nums[s] + nums[e];
             if(twoSum == target){
                 ans.push_back(++s);   ans.push_back(++e);
                 return ans;
