@@ -8,9 +8,7 @@ public:
             int numOne = nums[i];
             int s = i+1, e = nums.size()-1;
             
-            
             while(s<e){
-                vector<int> temp;
                 int threeSum = numOne + nums[s] + nums[e];
                 if(threeSum == 0){
                     ans.push_back({numOne, nums[s], nums[e]});
