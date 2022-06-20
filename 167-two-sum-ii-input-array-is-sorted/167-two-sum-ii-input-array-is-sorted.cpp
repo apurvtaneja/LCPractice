@@ -5,12 +5,13 @@ public:
         vector<int> ans;
         while(s<e){
             int numOne = nums[s];   int numTwo = nums[e];
-            if(numOne + numTwo == target){
+            int twoSum = numOne + numTwo;
+            if(twoSum == target){
                 ans.push_back(++s);   ans.push_back(++e);
                 return ans;
             }
-            else if(numOne + numTwo > target )   e--;
-            else if(numOne + numTwo < target )   s++;
+            else if(twoSum > target )   e--;
+            else if(twoSum < target )   s++;
         }
         return ans;
     }
