@@ -13,10 +13,7 @@ public:
                 vector<int> temp;
                 int threeSum = numOne + nums[s] + nums[e];
                 if(threeSum == 0){
-                    temp.push_back(numOne);
-                    temp.push_back(nums[s]);
-                    temp.push_back(nums[e]);
-                    ans.push_back(temp);
+                    ans.push_back({numOne, nums[s], nums[e]});
                     s++;
                     while(nums[s] == nums[s-1] && s<e)  s++;
                 }
