@@ -11,12 +11,12 @@
  */
 class Solution {
 private:
-    bool helpMeSenpai(TreeNode* root, long min, long max){
+    bool helpMeSenpai(TreeNode* root, long minLeft, long maxRight){
         if(!root) return true;
-        if (root->val <= min || root->val >= max) return false;
+        if (root->val <= minLeft || root->val >= maxRight) return false;
         
-        return helpMeSenpai(root->left, min, root->val) and 
-               helpMeSenpai(root->right, root->val, max);
+        return helpMeSenpai(root->left, minLeft, root->val) && 
+               helpMeSenpai(root->right, root->val, maxRight);
     }
 public:
     bool isValidBST(TreeNode* root) {
