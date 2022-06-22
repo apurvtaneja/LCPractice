@@ -25,10 +25,7 @@ public:
         vector<TreeNode*> pPath, qPath;
         solve( root, p, pPath);
         solve( root, q, qPath);
-        for(auto i:pPath)   cout<<i->val<<" ";
-        cout<<endl;
-        for(auto i:qPath)   cout<<i->val<<" ";
-        cout<<endl;
+        
         for(int i = pPath.size()-1; i>=0; i--)
             for(int j = qPath.size()-1; j>=0; j--)
                 if(pPath[i]->val == qPath[j]->val)
