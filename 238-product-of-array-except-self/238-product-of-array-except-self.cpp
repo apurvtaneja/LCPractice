@@ -1,30 +1,26 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        long long int totalProduct = 1;
+        int totProd = 1;
         bool zero = false;
-        int zeroIdx = -1;
         int numZero = 0;
+        
         for(int i=0; i<nums.size(); i++){
             if(nums[i])
-                totalProduct *= nums[i];
+                totProd *= nums[i];
             else if(nums[i]==0){
                 zero = true;
-                zeroIdx = i;
                 numZero++;
             }
         }
-        cout<<endl<<totalProduct;
+        cout<<endl<<totProd;
         for(int i=0; i<nums.size(); i++){
             if(numZero>1)
                 nums[i] = 0;
             else if(nums[i]==0)
-                nums[i] = totalProduct;
+                nums[i] = totProd;
             else{
-                if(!zero)
-                    nums[i] = totalProduct / nums[i];
-                else
-                    nums[i] = 0;
+                zero ? nums[i]=0 : nums[i] = totProd / nums[i];
             }
         }
         return nums;
