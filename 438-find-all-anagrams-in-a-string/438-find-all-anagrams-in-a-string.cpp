@@ -4,22 +4,22 @@ public:
         if(s.length()<p.length())       return {};
         
         vector<int> ans;
-        
         vector<int> pMap(26,0);
         vector<int> window(26,0);
         
+        int windStart = 0, windEnd = p.size()-1;
         
         for(auto c: p)  pMap[c - 'a']++;
         
-        int windStart = 0, windEnd = p.size()-1;
-        
+        // First Window
         for(int i = 0; i <= windEnd; i++)
             window[s[i] - 'a']++;
         
         if(window == pMap)
-                ans.push_back(windStart);
+                ans.push_back(0);
         
-        windEnd++; // Increment so we can include next element in our window.
+        // Increment so we can include next element in our window.
+        windEnd++; 
         
         while(windEnd < s.size()){
             //Include next index and increment windEnd.
