@@ -7,8 +7,6 @@ private:
     }
 public:
     int numIslands(vector<vector<char>>& grid) {
-        // if(!grid)   return 0;
-        
         int islands = 0;
         int row = grid.size();
         int col = grid[0].size();
@@ -23,6 +21,7 @@ public:
                 
                 queue<pair<int,int>> q;
                 q.push({i,j});
+                
                 while(!q.empty()){
                     auto [ni,nj] = q.front();
                     q.pop();
