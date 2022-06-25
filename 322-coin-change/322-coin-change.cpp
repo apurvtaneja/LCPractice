@@ -13,10 +13,10 @@ private:
         
         
         if(coins[n-1] <= amount)
-            dp[n][amount] = min(1 + solve(coins, amount - coins[n-1],n), 
+            return dp[n][amount] = min(1 + solve(coins, amount - coins[n-1],n), 
                                        solve(coins, amount, n-1));
         else if(coins[n-1]>amount)
-            dp[n][amount] = solve(coins, amount, n-1);
+            return dp[n][amount] = solve(coins, amount, n-1);
         
         return dp[n][amount];
     }
