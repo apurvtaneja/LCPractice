@@ -34,7 +34,7 @@ public:
         // return (target > sumOfArray) ? 0: countSubsetSum(nums, sumToFind, n);
         
  
-            dp[0][0] = 1;
+        dp[0][0] = 1;
         
         
         for(int i = 1; i<n+1; i++){
