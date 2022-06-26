@@ -4,7 +4,7 @@ private:
         if(n == word.length())
             return true;
         int rows = board.size(), cols = board[0].size();
-        if(r<0 || c<0 || r>=rows || c>=cols || word[n]!=board[r][c])
+        if(r<0 || c<0 || r>=rows || c>=cols || word[n]!=board[r][c] || board[r][c]=='*')
             return false;
         
         char tmp = board[r][c];
