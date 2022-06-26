@@ -5,7 +5,7 @@ private:
         if(n == 0 || n == 1)    return n;
         if(dp[n] != -1)
             return dp[n];
-        return dpFib(n-1) + dpFib(n-2);
+        return dp[n] = dpFib(n-1) + dpFib(n-2);
     }
 public:
     int fib(int n) {
