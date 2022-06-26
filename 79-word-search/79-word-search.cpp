@@ -22,8 +22,9 @@ public:
         int rows = board.size(), cols = board[0].size();
         for(int i = 0;i<rows; i++)
             for(int j = 0; j<cols; j++)
-                if(dfsSearch(board, word, 0, i, j))
-                    return true;
+                if(board[i][j] == word[0])
+                    if(dfsSearch(board, word, 0, i, j))
+                        return true;
         
         return false;
         
