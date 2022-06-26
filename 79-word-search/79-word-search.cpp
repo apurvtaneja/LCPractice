@@ -9,10 +9,10 @@ private:
         
         char tmp = board[r][c];
         board[r][c] = '*';
-        bool res =  dfsSearch(board, word, n+1, r, c + 1) or
-                dfsSearch(board, word, n+1, r + 1, c) or
-                dfsSearch(board, word, n+1, r, c -1) or
-                dfsSearch(board, word, n+1, r - 1, c);
+        bool res =  dfsSearch(board, word, n+1, r, c + 1) ||
+                    dfsSearch(board, word, n+1, r + 1, c) ||
+                    dfsSearch(board, word, n+1, r, c -1)  ||
+                    dfsSearch(board, word, n+1, r - 1, c);
         board[r][c] = tmp;
         return res;
     }
