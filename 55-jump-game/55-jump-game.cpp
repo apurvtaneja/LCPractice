@@ -20,11 +20,15 @@ public:
     bool canJump(vector<int>& nums) {
         int n = nums.size();
         if(n==0)    return true;
-        dp.resize(n + 1, -1);
-        return dpSolve(nums, 0);
+        // dp.resize(n + 1, -1);
+        // return dpSolve(nums, 0);
         
-//         dp[0] = true;
+        int goal = n-1;
         
-//         for(int i =)
+        for(int i = goal; i>=0; i--)
+            if(i + nums[i] >= goal)
+                goal = i;
+        
+        return goal==0?true:false;
     }
 };
