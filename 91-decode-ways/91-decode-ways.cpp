@@ -15,7 +15,8 @@ private:
         if(s[n] != '0')
             oneDigit = dpSolve(s, n+1);
         
-        if(s[n] == '1' || s[n] == '2' && s[n+1] <= '6')
+        // Ensuring that 2 digit number is less than 26. if so, only then make the call.
+        if(n+1 < len && s[n] == '1' || (s[n] == '2' && s[n+1] <= '6')) 
             twoDigit = dpSolve(s, n+2); 
         
         return dp[n] = oneDigit + twoDigit;
