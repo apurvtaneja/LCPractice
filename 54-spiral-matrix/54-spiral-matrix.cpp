@@ -20,25 +20,18 @@ public:
         
         while(cnt < totEl){
             
-            for(int i = startCol; i <= endCol && cnt < totEl; i++){
+            for(int i = startCol; i <= endCol && cnt < totEl; i++, cnt++)
                 res.push_back(mat[startRow][i]);
-                cnt++;
-            }
+            
             startRow++;
-            for(int i = startRow; i <= endRow && cnt < totEl; i++){
+            for(int i = startRow; i <= endRow && cnt < totEl; i++, cnt++)
                 res.push_back(mat[i][endCol]);
-                cnt++;
-            }
             endCol--;
-            for(int i = endCol; i >= startCol && cnt < totEl; i--){
+            for(int i = endCol; i >= startCol && cnt < totEl; i--, cnt++)
                 res.push_back(mat[endRow][i]);
-                cnt++;
-            }
             endRow--;
-            for(int i = endRow; i >= startRow && cnt < totEl; i--){
+            for(int i = endRow; i >= startRow && cnt < totEl; i--, cnt++)
                 res.push_back(mat[i][startCol]);
-                cnt++;
-            }
             startCol++;
         }
         return res;
