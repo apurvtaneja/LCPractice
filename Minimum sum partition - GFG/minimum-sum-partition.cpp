@@ -26,14 +26,11 @@ class Solution{
         
         vector<int> s1Candidates;
         
-        for(int i=0; i<=range/2; i++)
-            if(dp[n][i]){
-                s1Candidates.push_back(i);
-                // cout<<i<<endl;
-            }
         int minS = INT_MAX;
-        for(int i: s1Candidates)
-            minS = min(minS, abs(range-(2*i)));
+        for(int i=0; i<=range/2; i++)
+            if(dp[n][i])
+                minS = min(minS, abs(range-(2*i)));
+            
         
         return minS;
 	} 
