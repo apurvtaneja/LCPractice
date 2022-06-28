@@ -10,23 +10,22 @@ public:
         if(((sumOfArray - target) % 2 == 1) || (target > sumOfArray))
             return 0;
         
-        int sumToFind = (sumOfArray + target)/2;
+        int sumToFind = ((sumOfArray + target)/2);
         
-        int sizeSumToFind = sumToFind;
-        if(sumToFind < 0)
-            sizeSumToFind = sumToFind * -1;
-        vector<vector<int>> dp(n+1, vector<int>(sizeSumToFind+1));
+        if(sumToFind<0) sumToFind *= -1;
+        
+        vector<vector<int>> dp(n+1, vector<int>(sumToFind+1));
         
         dp[0][0] = 1;
         
         for(int i = 1; i<n+1; i++){
-            for(int j = 0; j<sizeSumToFind+1; j++){
+            for(int j = 0; j<sumToFind+1; j++){
                 if(nums[i-1] <= j)
                     dp[i][j] = dp[i-1][j-nums[i-1]] + dp[i-1][j];
                 else
                     dp[i][j] = dp[i-1][j];
             }
         }
-        return dp[n][sizeSumToFind];
+        return dp[n][sumToFind];
     }
 };
