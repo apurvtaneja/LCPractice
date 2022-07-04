@@ -18,13 +18,39 @@ private:
         }
         return false;
     }
+    bool bfs(int node, vector<int>& visited, vector<int> adj[]){
+        
+        queue<pair<int, int>> q;
+        visited[node] = 1;
+        q.push({node, -1});
+        
+        while(!q.empty()){
+            int cur = q.front().first;
+            int par = q.front().second;
+            q.pop();
+            
+            for(auto it: adj[cur]){
+                if(!visited[it]){
+                    visited[it] = 1;
+                    q.push({it, cur});
+                }
+                else if(visited[it] && par != it)
+                    return true;
+            }
+        }
+        return false;
+    }
   public:
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) {
-        vector<int> visited(V+1,0);
+        
+        
+        vector<int> visited(V,0);
+        
         for(int i = 0; i<V; i++)
             if(!visited[i])
-                if(dfs(i, -1, visited, adj))
+                // if(dfs(i, -1, visited, adj))
+                if(bfs(i, visited, adj))
                     return true;
         
         return false;
