@@ -18,23 +18,26 @@ private:
         }
         return false;
     }
-    bool bfs(int node, vector<int>& visited, vector<int> adj[]){
-        
+    bool bfs(int i, vector<int> adj[], vector<int> &vis)
+    {
         queue<pair<int, int>> q;
-        visited[node] = 1;
-        q.push({node, -1});
+        q.push({i, -1});
+        vis[i] = 1;
         
-        while(!q.empty()){
-            int cur = q.front().first;
-            int par = q.front().second;
+        while(!q.empty())
+        {
+            int node = q.front().first;
+            int parent = q.front().second;
             q.pop();
             
-            for(auto it: adj[cur]){
-                if(!visited[it]){
-                    visited[it] = 1;
-                    q.push({it, cur});
+            for(auto it : adj[node])
+            {
+                if(!vis[it])
+                {
+                    vis[it] = true;
+                    q.push({it, node});
                 }
-                else if(visited[it] && par != it)
+                else if(it != parent)
                     return true;
             }
         }
@@ -50,7 +53,7 @@ private:
         for(int i = 0; i<V; i++)
             if(!visited[i])
                 // if(dfs(i, -1, visited, adj))
-                if(bfs(i, visited, adj))
+                if(bfs(i, adj, visited))
                     return true;
         
         return false;
