@@ -8,7 +8,7 @@ public:
             prefSum += i;
             if(prefSum == k)    
                 kCount++;
-            if(prefSumCount[prefSum - k] != 0)
+            if(prefSumCount.find(prefSum - k) != prefSumCount.end())
                 kCount += prefSumCount[prefSum - k];
             
             prefSumCount[prefSum] += 1;
