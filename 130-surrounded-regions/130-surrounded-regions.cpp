@@ -26,12 +26,12 @@ public:
                 dfs(board, rows-1, i);
         }
         
-        for(int i = 0; i<rows; i++){
-            for(int j = 0; j<cols; j++){
-                if(board[i][j] == '1')
-                    board[i][j] = 'O';
-                else if(board[i][j] == 'O')
-                    board[i][j] = 'X';
+        for(auto& v: board){
+            for(auto& c: v){
+                if(c == '1')
+                    c = 'O';
+                else if(c == 'O')
+                    c = 'X';
             }
         }
     }
