@@ -4,7 +4,7 @@ public:
         
         sort(nums.begin(), nums.end());
         
-        int result = nums[0] + nums[2] + nums[nums.size() - 1];
+        int result = nums[0] + nums[1] + nums[nums.size() - 1];
         for(int i = 0; i<nums.size()-2; i++){
             int numOne = nums[i];
             int s = i+1, e = nums.size()-1;
