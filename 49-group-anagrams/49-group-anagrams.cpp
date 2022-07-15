@@ -1,10 +1,14 @@
 class Solution {
 private:
     string countSort(string s){
-        multiset<char> st(s.begin(),s.end());
+        int arr[26] = {0};
+        for(char c: s)
+            arr[c - 'a']++;
+        
         string t = "";
-        for(char c: st)
-            t.push_back(c);
+        for(int i = 0; i < 26; i++)
+                t += string(arr[i], 'a' + i);
+        
         return t;
     }
 public:
