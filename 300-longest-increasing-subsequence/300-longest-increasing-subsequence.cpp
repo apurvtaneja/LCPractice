@@ -1,24 +1,27 @@
 class Solution {
-public:
-    //RECURSION + MEMOIZATION
-    int help(int ind , int prev ,vector<int>& arr,vector<vector<int>> &dp){
-        if(ind == arr.size())return 0;
-            
-        if(dp[ind][prev+1] != -1){
-            return dp[ind][prev+1];
-        }
-        
-        int nottake = help(ind+1,prev,arr,dp);
-        int take =0;
-        if(prev==-1 || arr[ind]>arr[prev]){
-            take = 1+help(ind+1,ind,arr,dp);
-        }
-        return dp[ind][prev+1]=max(nottake,take);
+private:
+    vector<vector<int>> dp;
+    int dpSolve(const vector<int> &A, int i, int prevIdx){
+        int n = A.size();
+        if(i==n)
+            return 0;
+        if(dp[i][prevIdx+1] != -1)
+            return dp[i][prevIdx+1];
+
+        int notTake = dpSolve(A, i+1, prevIdx);
+
+        int take = 0;
+        if(prevIdx == -1 || A[i] > A[prevIdx])
+            take = 1 + dpSolve(A, i+1, i);
+
+        return dp[i][prevIdx+1] = max(take, notTake);
     }
-     int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        //APPROACH 1
-        vector<vector<int>> dp(n+1,vector<int>(n+1,-1));
-        return help(0,-1,nums,dp);
-		}
+public:
+    int lengthOfLIS(vector<int>& A) {
+        int n = A.size();
+
+        dp.resize(n+1,vector<int>(n+1,-1));
+
+        return dpSolve(A, 0, -1);
+    }
 };
