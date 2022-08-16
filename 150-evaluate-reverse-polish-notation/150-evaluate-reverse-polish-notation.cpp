@@ -13,17 +13,15 @@ public:
             if(s == "+")
                 st.push(helper(st) + helper(st));
             else if(s == "-"){
-                int a, b;
-                a = helper(st);
-                b = helper(st);
+                int a = helper(st);
+                int b = helper(st);
                 st.push(b-a);
             }
             else if(s == "*")
                 st.push(helper(st) * helper(st));
             else if(s=="/"){
-                int a, b;
-                a = helper(st);
-                b = helper(st);
+                int a = helper(st);
+                int b = helper(st);
                 st.push(b/a);
             }
             else
