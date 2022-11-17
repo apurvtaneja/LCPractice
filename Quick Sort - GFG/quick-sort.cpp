@@ -30,14 +30,14 @@ class Solution
     int partition (int arr[], int low, int high)
     {
        int p = arr[high];
-       int i = low - 1;
+       int i = low;
        
        for(int j = low; j < high; j++)
             if(arr[j] < p)
-                swap(arr[++i], arr[j]);
+                swap(arr[i++], arr[j]);
        
-       swap(arr[i+1], arr[high]);
-       return i+1;
+       swap(arr[i], arr[high]);
+       return i;
     }
 };
 
