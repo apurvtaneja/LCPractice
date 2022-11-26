@@ -12,6 +12,8 @@ public:
         
         priority_queue<pair<double, int>> pq;
         
+        vector<bool> seen(n, false);
+        
         vector<double> prob(n, 0.00);
         prob[start] = 1;
         
@@ -20,8 +22,8 @@ public:
         while(!pq.empty()){
             auto [p, prev] = pq.top();
             pq.pop();
-            // if(prev == end)
-            //     return p;
+            if(seen[prev])  continue;
+            seen[prev] = true;
             for(auto [next, pNext]: adj[prev]){
                 if(prob[next] < p * pNext){
                     prob[next] = p * pNext;
