@@ -11,13 +11,13 @@ public:
     }
     int reachNumber(int target) {
         // return minMoves(0, 0, abs(target));
-        int k = 1, sum = 0;
+        int k = 0, sum = 0;
         target = abs(target);
         
         while(sum<target || (sum - target)%2 == 1)
-            sum += k++;
+            sum += ++k;
         
-        return k-1;
+        return k;
         
         
     }
