@@ -12,7 +12,7 @@ public:
         string res = "";
         
         while(!st.empty()){
-            res += st.top();
+            res.push_back(st.top());
             st.pop();
         }
         reverse(res.begin(), res.end());
