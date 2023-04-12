@@ -4,7 +4,7 @@ public:
         if(path.length() > 0 && path[0] !='/')
             return "";
         
-        string res = "/";
+        string res = "";
         vector<string> st;
         
         int j = path.length() - 1;
@@ -14,7 +14,7 @@ public:
         int n = path.length();
         
         for(int i = 0; i< n; i++){
-            while((i<n) && path[i] == '/')
+            while((i<n) && path[i] == '/')    
                 i++;
             
             string s = "";
@@ -33,10 +33,8 @@ public:
         }
         
         for(string s: st)
-            res += s + '/';
+            res += '/' + s;
         
-        if(res.length()>1)
-            res.pop_back();
-        return res;
+        return res==""?"/":res;
     }
 };
