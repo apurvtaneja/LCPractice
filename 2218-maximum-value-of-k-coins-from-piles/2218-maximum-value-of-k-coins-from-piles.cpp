@@ -3,7 +3,7 @@ private:
     vector<vector<int>> dp;
     
     int dpSolve(vector<vector<int>>& piles, int k, int n){
-        if(n == 0)
+        if(n == 0 || k == 0)
             return 0;
         if(dp[n][k] != -1)
             return dp[n][k];
