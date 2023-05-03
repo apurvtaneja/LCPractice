@@ -2,19 +2,16 @@ class Solution {
 private:
     vector<int> getDifference(vector<int>& nums1, vector<int>& nums2){
         
-        unordered_set<int> st;
+        unordered_set<int> st1, st2;
         
-        for(int i = 0; i < nums1.size(); i++){
-            int flag = 0;
-            for(int j = 0; j < nums2.size(); j++){
-                if(nums1[i] == nums2[j])
-                    flag = 1;
-            }
-            if(!flag)
-                st.insert(nums1[i]);
-        }
+        for(int j: nums2)
+            st2.insert(j);
         
-        return vector<int>(st.begin(), st.end());
+        for(int i: nums1)
+            if(st2.find(i) == st2.end())
+                st1.insert(i);
+        
+        return vector<int>(st1.begin(), st1.end());
     }
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {        
