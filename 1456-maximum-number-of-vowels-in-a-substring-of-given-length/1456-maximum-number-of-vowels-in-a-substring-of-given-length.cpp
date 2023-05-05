@@ -4,12 +4,7 @@ public:
         if(s.length() < k)
             return 0;
         
-        unordered_set<char> st;
-        st.insert('a');        
-        st.insert('e');
-        st.insert('i');
-        st.insert('o');
-        st.insert('u');
+        unordered_set<char> st{'a','e','i','o','u'};
 
         int n = s.length();
         int max_vowels = 0;
