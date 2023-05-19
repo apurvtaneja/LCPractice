@@ -3,7 +3,7 @@ class Solution {
         color[i] = curC;
         for(int n : graph[i]){
             if(color[n] == -1){
-                if (!dfs(n, (curC + 1) % 2, graph, color))
+                if (!dfs(n, 1 - curC, graph, color))
                     return false;
             } else if(color[n] == color[i]){
                 return false;
